@@ -33,7 +33,6 @@ while counter == 0:
         print(f'Scanning ports {ports} on {ipaddr}')
         nm.scan(ipaddr, ports)
         print('*'*50)
-        print(nm.command_line())    
         #TCP
         if 'tcp' in nm[ipaddr].all_protocols():
             print('Protocol : TCP')
