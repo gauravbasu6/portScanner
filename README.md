@@ -1,7 +1,7 @@
 # portScanner
 Basic portScanner for my Quark Summer Technical Project. Used python-nmap module.
---> Scan top 1000 ports (0-1000)
---> Scan all 65536 ports (0-65535)
+<br>--> Scan top 1000 ports (0-1000)
+<br>--> Scan all 65536 ports (0-65535)
 The script returns which ports are open, alongwith the service names.
 
 ## Requirements
