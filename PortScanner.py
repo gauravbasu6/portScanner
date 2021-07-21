@@ -13,33 +13,7 @@ def callback_result(host, scan_result):
                 print(f"Port : {port}\tService : unknown\tState : {scan_result['scan'][ipaddr]['tcp'][port]['state']}")
             else:
                 print(f"Port : {port}\tService : {scan_result['scan'][ipaddr]['tcp'][port]['name']}\tState : {scan_result['scan'][ipaddr]['tcp'][port]['state']}")
-    #UDP
-    if 'udp' in scan_result['scan'][ipaddr].keys():
-        check = 1
-        print('Protocol : UDP')
-        for port in scan_result['scan'][ipaddr]['udp']:
-            if scan_result['scan'][ipaddr]['udp'][port]['name'] == '' :
-                print(f"Port : {port}\tService : unknown\tState : {scan_result['scan'][ipaddr]['udp'][port]['state']}")
-            else:
-                print(f"Port : {port}\tService : {scan_result['scan'][ipaddr]['udp'][port]['name']}\tState : {scan_result['scan'][ipaddr]['udp'][port]['state']}")
-    #IP
-    if 'ip' in scan_result['scan'][ipaddr].keys():
-        check = 1
-        print('Protocol : IP')
-        for port in scan_result['scan'][ipaddr]['ip']:
-            if scan_result['scan'][ipaddr]['ip'][port]['name'] == '' :
-                print(f"Port : {port}\tService : unknown\tState : {scan_result['scan'][ipaddr]['ip'][port]['state']}")
-            else:
-                print(f"Port : {port}\tService : {scan_result['scan'][ipaddr]['ip'][port]['name']}\tState : {scan_result['scan'][ipaddr]['ip'][port]['state']}")
-    #SCTP
-    if 'sctp' in scan_result['scan'][ipaddr].keys():
-        check = 1
-        print('Protocol : SCTP')
-        for port in scan_result['scan'][ipaddr]['sctp']:
-            if scan_result['scan'][ipaddr]['sctp'][port]['name'] == '' :
-                print(f"Port : {port}\tService : unknown\tState : {scan_result['scan'][ipaddr]['sctp'][port]['state']}")
-            else:
-                print(f"Port : {port}\tService : {scan_result['scan'][ipaddr]['sctp'][port]['name']}\tState : {scan_result['scan'][ipaddr]['sctp'][port]['state']}")
+
     #No ports open
     if check == 0 :
         print('No ports open!')
@@ -77,27 +51,6 @@ while counter == 0:
             print('Protocol : TCP')
             for port in nm[ipaddr].all_tcp() :
                 print(f"Port : {port}\tService : {nm[ipaddr]['tcp'][port]['name']}\tState : {nm[ipaddr]['tcp'][port]['state']}")
-            
-        #UDP
-        if 'udp' in nm[ipaddr].all_protocols():
-            check=1
-            print('Protocol : UDP')
-            for port in nm[ipaddr].all_udp() :
-                print(f"Port : {port}\tService : {nm[ipaddr]['udp'][port]['name']}\tState : {nm[ipaddr]['udp'][port]['state']}")
-
-        #IP
-        if 'ip' in nm[ipaddr].all_protocols():
-            check=1
-            print('Protocol : IP')
-            for port in nm[ipaddr].all_ip() :
-                print(f"Port : {port}\tService : {nm[ipaddr]['ip'][port]['name']}\tState : {nm[ipaddr]['ip'][port]['state']}")
-        
-        #SCTP
-        if 'sctp' in nm[ipaddr].all_protocols():
-            check=1
-            print('Protocol : SCTP')
-            for port in nm[ipaddr].all_sctp() :
-                print(f"Port : {port}\tService : {nm[ipaddr]['sctp'][port]['name']}\tState : {nm[ipaddr]['sctp'][port]['state']}")
         
         #No ports open
         if check == 0 :
